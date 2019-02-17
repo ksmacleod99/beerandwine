@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import TextField from '@material-ui/core/TextField';
 
+//my functional beer form component
 
 class BeerForm extends Component {
     render() {
@@ -8,7 +9,7 @@ class BeerForm extends Component {
             <div> 
              <TextField
                required
-               id="outlined-required"
+               id="beerName"
                label="Beer Name"
                defaultValue="Hello World"
                margin="normal"
@@ -17,7 +18,7 @@ class BeerForm extends Component {
 
             <TextField
               required
-              id="outlined-required"
+              id="brewery"
               label="Brewery"
               defaultValue="Local Brew Shop Co"
               margin="normal"
@@ -26,7 +27,7 @@ class BeerForm extends Component {
     
            <TextField
              required
-             id="outlined-required"
+             id="beerStyle"
              label="Style"
              defaultValue="Pilsner"
              margin="normal"
@@ -35,7 +36,7 @@ class BeerForm extends Component {
             
            <TextField
              required
-             id="outlined-required"
+             id="beerYear"
              label="Year"
              defaultValue="2019"
              margin="normal"
