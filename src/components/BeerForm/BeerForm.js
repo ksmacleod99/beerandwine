@@ -4,47 +4,73 @@ import TextField from '@material-ui/core/TextField';
 //my functional beer form component
 
 class BeerForm extends Component {
+  constructor(props){
+    super(props);
+    this.beerHandleChange = this.beerHandleChange.bind(this);
+    this.state = {
+      beerName: '',
+      brewery: '',
+      beerStyle: '',
+      beerYear: '',
+    };
+  }
+  beerHandleChange(e){
+    const target = e.target;
+    const value = target.value;
+    const name = target.name;
+
+    this.setState({
+      [name]: value
+    });
+  }
+
     render() {
         return (
             <div> 
              <TextField
                required
-               id="beerName"
+               name="beerName"
                label="Beer Name"
-               defaultValue="Hello World"
                margin="normal"
                variant="outlined"
+               value={this.state.beerName}
+               onChange={this.beerHandleChange}
              />
 
             <TextField
               required
-              id="brewery"
+              name="brewery"
               label="Brewery"
-              defaultValue="Local Brew Shop Co"
               margin="normal"
               variant="outlined"
+              value={this.state.brewery}
+              onChange={this.beerHandleChange}
             />
     
            <TextField
              required
-             id="beerStyle"
+             name="beerStyle"
              label="Style"
              defaultValue="Pilsner"
              margin="normal"
              variant="outlined"
+             value={this.state.beerStyle}
+             onChange={this.beerHandleChange}
            />
             
            <TextField
              required
-             id="beerYear"
+             name="beerYear"
              label="Year"
              defaultValue="2019"
              margin="normal"
              variant="outlined"
+             value={this.state.beerYear}
+             onChange={this.beerHandleChange}
            />
         </div>
 
-        )
+        );
     }
 }
 

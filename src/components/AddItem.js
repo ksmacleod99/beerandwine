@@ -12,10 +12,9 @@ import Button from '@material-ui/core/Button';
 class AddItem extends Component {
     constructor(props) {
         super(props);
-        this.handleBeer = this.handleBeer.bind(this);
-        this.handleWine = this.handleWine.bind(this);
-        this.handleLike = this.handleLike.bind(this);
-        this.handleDislike = this.handleDislike.bind(this);
+        this.localHandleChange = this.localHandleChange.bind(this); //handles changes on this component
+        {/*this.handleBeerChange = this.handleBeerChange.bind(this); //handle changes on beerForm
+        this.handleWineChange = this.handleWineChange.bind(this); //handles changes on wineForm */}
         this.createItem = this.createItem.bind(this);
         this.state = {
             isBeer: true,
@@ -30,23 +29,15 @@ class AddItem extends Component {
             notes: '',
         };
     }
-
-    handleBeer() {
-        this.setState({isBeer: true});
-    }
-    handleWine(){
-        this.setState({isBeer: false});
-    }
-    handleLike(){
-        this.setState({liked: true});
-    }
-    handleDislike(){
-        this.setState({liked: false});
+    localHandleChange(event) {
+        this.setState({
+            isBeer: event.isBeer.value
+         });
+         console.log(this.state);
     }
 
     createItem(event){
         event.preventDefault();
-        this.setState()
     }
 
     render (){
@@ -69,8 +60,8 @@ class AddItem extends Component {
                 <FormControlLabel value="beer" control={
                     <Radio
                         checked={this.state.isBeer === true}
-                        onClick={this.handleBeer}
-                        value="Beer"
+                        onChange={this.localHandleChange}
+                        value = {true}
                         name="Beer"
                         aria-label="Beer"
                     />
@@ -78,9 +69,9 @@ class AddItem extends Component {
                 <FormControlLabel value="wine" control={
                     <Radio
                         checked={this.state.isBeer === false}
-                        onClick={this.handleWine}
-                        value="Wine"
-                        name="Wine"
+                        onChange={this.localHandleChange}
+                        value = {false}
+                        name="wine"
                         aria-label="Wine"
                     />
                 } label="Wine" />       
@@ -89,17 +80,16 @@ class AddItem extends Component {
                 <FormControlLabel value="like" control={
                     <Radio
                         checked={this.state.liked === true}
-                        onClick={this.handleLike}
-                        value="I liked it"
-                        name="like"
+                        onChange={this.localHandleChange}
+                        value="like"
                         aria-label="I liked it"
                     />
                 } label="Liked It" />
                 <FormControlLabel value="dislike" control={
                     <Radio
                         checked={this.state.liked === false}
-                        onClick={this.handleDislike}
-                        value="I did not like it"
+                        onChange={this.localHandleChange}
+                        value="dislike"
                         name="dislike"
                         aria-label="I did not like it"
                     />

@@ -5,3 +5,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 ### Things I've learned: 
 - how to use conditional rendering 
 - getting a better sense of what is a functional component and what is a stateful component. 
+- good practice with git workflow! 
+
+### to-dos
+ - add ciders
+ - add "where did I try this" 
+ 
+### Scripts
+`yarn start` 
+runs on localhost:3000
