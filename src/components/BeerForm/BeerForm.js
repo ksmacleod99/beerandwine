@@ -19,12 +19,12 @@ class BeerForm extends Component {
 
   beerHandleChange(e){
   this.props.onBeerUpdate(e.target.value); 
-  { /* const name = e.target.name;
+  /* const name = e.target.name;
     const value = e.target.value;
  
     this.setState ({
       [name]: value
-    }) */} 
+    }) */
     }
 
     render() {

@@ -19,9 +19,10 @@ class AddItem extends Component {
         this.handleLikeChange = this.handleLikeChange.bind(this);
         this.handleBeerChange = this.handleBeerChange.bind(this); //handle changes on beerForm
        /*  this.handleWineChange = this.handleWineChange.bind(this); //handles changes on wineForm */
+       this.makeNotes = this.makeNotes.bind(this); //handles the note field
         this.createItem = this.createItem.bind(this);
         this.state = {
-            isBeer: '',
+            isBeer: 'beer',
             liked: '',
             beerName: '',
             brewery: '',
@@ -58,6 +59,11 @@ class AddItem extends Component {
         })
     }
 
+    makeNotes(e){
+        this.setState({
+            notes: e.target.value
+        })
+    }
     createItem(e){
         e.preventDefault();
         console.log(this.state)
@@ -72,6 +78,7 @@ class AddItem extends Component {
          } else {
             form = <BeerForm onBeerUpdate={this.handleBeerChange} />
         } 
+
         return(
             <div>
             <form onSubmit={this.createItem} className="add-form">
@@ -83,7 +90,7 @@ class AddItem extends Component {
                 <FormLabel component="legend">Beer or Wine?</FormLabel>
                     <RadioGroup
                         onChange={this.localHandleChange}
-                        value={this.value}
+                        value={this.state.value}
                         name="isBeer"
                         aria-label="Beer or wine"
                     >
@@ -98,7 +105,7 @@ class AddItem extends Component {
                 <FormLabel component="legend">Did you like it?</FormLabel>
                     <RadioGroup
                         onChange={this.handleLikeChange}
-                        value={this.value}
+                        value={this.state.value}
                         name="liked"
                         aria-label="Did you like it"
                     >
@@ -116,6 +123,7 @@ class AddItem extends Component {
                  defaultValue=""
                  margin="normal"
                  variant="outlined"
+                 onChange={this.makeNotes}
                  />
             </div>
                
