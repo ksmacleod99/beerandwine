@@ -7,24 +7,32 @@ class BeerForm extends Component {
   constructor(props){
     super(props);
     this.beerHandleChange = this.beerHandleChange.bind(this);
-    this.state = {
+    this.state  =
+    {
       beerName: '',
       brewery: '',
-      beerStyle: '',
-      beerYear: '',
-    };
-  }
-  beerHandleChange(e){
-    const target = e.target;
-    const value = target.value;
-    const name = target.name;
+      beerStyle: 'Pilsner',
+      beerYear: '2019',
+    }
 
-    this.setState({
-      [name]: value
-    });
   }
+
+  beerHandleChange(e){
+  this.props.onBeerUpdate(e.target.value); 
+  { /* const name = e.target.name;
+    const value = e.target.value;
+ 
+    this.setState ({
+      [name]: value
+    }) */} 
+    }
 
     render() {
+      const beerName = this.props.beerName;
+      const brewery = this.props.brewery;
+      const beerStyle = this.props.beerStyle;
+      const beerYear = this.props.beerYear;
+
         return (
             <div> 
              <TextField
@@ -33,7 +41,7 @@ class BeerForm extends Component {
                label="Beer Name"
                margin="normal"
                variant="outlined"
-               value={this.state.beerName}
+               value={beerName}
                onChange={this.beerHandleChange}
              />
 
@@ -43,7 +51,7 @@ class BeerForm extends Component {
               label="Brewery"
               margin="normal"
               variant="outlined"
-              value={this.state.brewery}
+              value={brewery}
               onChange={this.beerHandleChange}
             />
     
@@ -54,7 +62,7 @@ class BeerForm extends Component {
              defaultValue="Pilsner"
              margin="normal"
              variant="outlined"
-             value={this.state.beerStyle}
+             value={beerStyle}
              onChange={this.beerHandleChange}
            />
             
@@ -65,7 +73,7 @@ class BeerForm extends Component {
              defaultValue="2019"
              margin="normal"
              variant="outlined"
-             value={this.state.beerYear}
+             value={beerYear}
              onChange={this.beerHandleChange}
            />
         </div>
