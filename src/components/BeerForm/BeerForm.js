@@ -7,28 +7,17 @@ class BeerForm extends Component {
   constructor(props){
     super(props);
     this.beerHandleChange = this.beerHandleChange.bind(this);
-    this.state  =
-    {
-      beerName: '',
-      brewery: '',
-      beerStyle: 'Pilsner',
-      beerYear: '2019',
+    this.state = {
+      beerName: ''
     }
-
   }
 
   beerHandleChange(e){
-  this.props.onBeerUpdate(e.target.value); 
-  /* const name = e.target.name;
-    const value = e.target.value;
- 
-    this.setState ({
-      [name]: value
-    }) */
+    this.state.onBeerUpdate(e.target.value); 
     }
 
     render() {
-      const beerName = this.props.beerName;
+      const beerName = this.state.beerName;
       const brewery = this.props.brewery;
       const beerStyle = this.props.beerStyle;
       const beerYear = this.props.beerYear;
